@@ -31,10 +31,6 @@ jobs:
         run: pnpm install
       - name: Build
         run: pnpm run build
-      - name: Copy Legacy Site
-        run: |
-          mkdir -p dist/legacy
-          cp -r legacy/* dist/legacy/
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
