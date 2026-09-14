@@ -14,15 +14,17 @@ const Research = () => {
         },
         {
             type: "Journal Paper",
-            title: "A Systematic Review on Impact of Diffusion Models in Health Informatics: The Role of Explainable AI and Clinician Involvement",
-            abstract: "Diffusion models, as the advanced evolvement of generative models, have been adopted across various domains and demonstrate remarkable performance in a wide range of applications.",
-            link: "/research/diffusion-models"
+            title: "A Systematic Review of Diffusion Models for Medical Image-Based Diagnosis: Methods, Taxonomies, Clinical Integration, Explainability, and Future Directions",
+            abstract: "Systematic review of 68 studies on diffusion models in medical imaging and health informatics, analyzing model architectures, clinical applications, and explainability; identifies gaps in XAI adoption (22%) and clinician collaboration (57%) and proposes 10 evidence-based future research directions.",
+            link: "/research/diffusion-models",
+            journal: "Diagnostics (MDPI)",
+            journalLink: "https://www.mdpi.com/2075-4418/16/2/211"
         },
 
         {
             type: "Journal Paper",
             title: "Deep Learning in Knee Osteoarthritis: A Comprehensive Review of Imaging Modalities, Model Architectures, Grading Systems, and Explainable AI",
-            abstract: "A comprehensive review analyzing deep learning applications in knee osteoarthritis imaging, examining pre-processing techniques, model architectures, and explainable AI frameworks. (Manuscript in Preparation)",
+            abstract: "A comprehensive review analyzing deep learning applications in knee osteoarthritis imaging, examining pre-processing techniques, model architectures, grading systems, and explainable AI frameworks. (Submitted for review)",
             link: "/research/koa-review"
         },
         {

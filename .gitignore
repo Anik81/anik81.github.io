@@ -39,5 +39,39 @@ coverage/
 
 # System Files
 Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*~
+
+# Build caches & tooling
+.cache/
+.vite/
+.eslintcache
+*.tsbuildinfo
+.turbo/
+
+# Package manager artifacts
+.pnpm-store/
+.npm/
+.yarn/
+
+# Temp / backup / junk files
+tmp/
+temp/
+*.tmp
+*.temp
+*.bak
+*.old
+*.orig
+* - Copy.*
+*- Copy*
+
+# Local AI assistant / editor settings
+.claude/settings.local.json
+.history/
+
+# One-off local tooling (thumbnails already generated into public/)
+scripts/
 
 # Documentation
