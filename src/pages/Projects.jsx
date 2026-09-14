@@ -7,10 +7,50 @@ const Projects = () => {
 
     const projects = [
         {
-            title: "Fine Tuned LLaMA 3.1",
-            tags: ["LLM", "SQL", "NLP", "Python"],
-            description: "Fine-tuned LLaMA 3.1 8B on a custom dataset of natural language and SQL queries to improve text-to-SQL generation.",
-            image: "/assets/img/projects/LLM.png",
+            title: "AI-Interviewer",
+            tags: ["Next.js", "TypeScript", "FastAPI", "OpenAI+Gemini", "Redis", "Docker"],
+            description: "Conversational interview platform with a microservices architecture and multimodal processing via OpenAI+Gemini APIs, reducing candidate screening time by 70%.",
+            image: "/assets/img/projects/gen/ai-interviewer.svg",
+            category: "AI/ML",
+            links: {
+                code: "https://github.com/Anik81/AI-Interviewer-Documentation"
+            }
+        },
+        {
+            title: "CV-Sorter",
+            tags: ["FastAPI", "OpenAI APIs", "MySQL", "AWS S3"],
+            description: "AI-powered CV screening platform with async batch processing and intelligent candidate ranking, scoring and ranking 500+ candidates in minutes.",
+            image: "/assets/img/projects/gen/cv-sorter.svg",
+            category: "AI/ML",
+            links: {
+                code: "https://github.com/Anik81/CV-Sorter-Documentation"
+            }
+        },
+        {
+            title: "2D-to-3D Model Generator",
+            tags: ["Python", "PyTorch", "Transformers", "Computer Vision"],
+            description: "Converts 2D images into 3D models using Stability AI's TripoSR with automated mesh generation and .glb model export.",
+            image: "/assets/img/projects/gen/2d-to-3d.svg",
+            category: "AI/ML",
+            links: {
+                code: "https://github.com/anik81/2D-Image-to-3D-model-Generator"
+            }
+        },
+        {
+            title: "NewsDocument-Classifier",
+            tags: ["PyTorch", "Bi-LSTM", "GloVe", "Multi-Head Attention"],
+            description: "Hierarchical Attention Network for multi-class text classification with dual-stage attention, residual connections, and a gating mechanism.",
+            image: "/assets/img/projects/gen/news-classifier.svg",
+            category: "AI/ML",
+            links: {
+                code: "https://github.com/Anik81/News-Document-Classifier"
+            }
+        },
+        {
+            title: "Fine Tuned LLaMA 3.1 (Text-to-SQL)",
+            tags: ["Meta-LLaMA 3.1", "QLoRA", "HuggingFace"],
+            description: "Fine-tuned an 8B parameter model using QLoRA with 4-bit quantization, achieving 85.48% exact match accuracy on text-to-SQL generation for ERP databases.",
+            image: "/assets/img/projects/gen/llama-text2sql.svg",
             category: "AI/ML",
             links: {
                 demo: "https://huggingface.co/tranik/FineTuned-LLma3.1-text2sql",
@@ -18,23 +58,34 @@ const Projects = () => {
             }
         },
         {
-            title: "Django Chatbot",
-            tags: ["Python", "Django", "GPT-3.5"],
-            description: "A Django web application incorporating OpenAI's GPT-3.5 for real-time natural language communication.",
-            image: "/assets/img/projects/webchat1.png",
-            category: "Web App",
+            title: "Odoo-Copilot",
+            tags: ["Django", "OpenAI Assistants API", "LangChain", "ChromaDB"],
+            description: "Agentic ERP chatbot enabling natural-language queries and workflow automation through multi-LLM orchestration.",
+            image: "/assets/img/projects/gen/odoo-copilot.svg",
+            category: "AI/ML",
             links: {
-                code: "https://github.com/Anik81/Django-Chatbot"
+                demo: "https://www.youtube.com/watch?v=IZPemPdBVHs"
             }
         },
         {
             title: "Acumen HelpBot",
-            tags: ["Official", "Chatbot", "Business Logic"],
-            description: "Customizable business management software chatbot for book publishers, streamlining inventory and financial tasks.",
+            tags: ["Django", "ChromaDB", "Sentence Transformers"],
+            description: "RAG-based chatbot with vector search and embeddings-based retrieval for document Q&A, streamlining inventory and financial tasks for book publishers.",
             image: "/assets/img/projects/Acumen1.png",
             category: "AI/ML",
             links: {
                 demo: "https://acumen-help.bistasolutions.com/chatbot"
+            }
+        },
+        {
+            title: "Knee Osteoarthritis Severity Prediction",
+            tags: ["TensorFlow", "Keras", "OpenCV", "Explainable AI"],
+            description: "Stacked ensemble model for KOA classification from X-rays with explainability via Grad-CAM, Score-CAM, and LIME, reaching 96.93% multi-class accuracy.",
+            image: "/assets/img/publication/KOA_display.jpg",
+            category: "AI/ML",
+            links: {
+                demo: "https://ieeexplore.ieee.org/document/11239041",
+                code: "https://github.com/Anik81/KOA-Diagnosis-and-Severity-Prediction"
             }
         },
         {
@@ -96,9 +147,9 @@ const Projects = () => {
                                 <button
                                     key={cat}
                                     onClick={() => setFilter(cat)}
-                                    className={`px-4 py-2 rounded-full font-mono text-sm transition-all ${filter === cat
-                                        ? 'bg-cyan-500 text-black font-bold'
-                                        : 'bg-white/5 text-gray-400 hover:bg-white/10'
+                                    className={`px-4 py-2 rounded-full font-mono text-sm transition-all border ${filter === cat
+                                        ? 'bg-purple-600 text-white border-purple-600 dark:bg-cyan-500 dark:text-black dark:border-cyan-500 font-bold'
+                                        : 'bg-gray-100 text-gray-600 border-gray-200 hover:bg-gray-200 dark:bg-white/5 dark:text-gray-400 dark:border-white/5 dark:hover:bg-white/10'
                                         }`}
                                 >
                                     {cat}

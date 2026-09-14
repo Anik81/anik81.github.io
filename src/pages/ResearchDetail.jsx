@@ -9,16 +9,18 @@ const ResearchDetail = () => {
     // Research papers data
     const papers = {
         'diffusion-models': {
-            title: "A Systematic Review on Impact of Diffusion Models in Health Informatics: The Role of Explainable AI and Clinician Involvement",
+            title: "A Systematic Review of Diffusion Models for Medical Image-Based Diagnosis: Methods, Taxonomies, Clinical Integration, Explainability, and Future Directions",
             type: "Journal Paper",
-            status: "Under Review (Q1 Journal)",
-            date: "2024",
-            authors: ["Tanvir Rahman Anik", "Dr. Mohammad Azad", "et al."],
-            abstract: "Diffusion models, as the advanced evolvement of generative models, have been adopted across various domains and demonstrate remarkable performance in a wide range of applications. In health informatics, diffusion models have shown great potential in medical image synthesis, disease diagnosis, and treatment planning. This systematic review examines the current state of diffusion models in health informatics, with a particular focus on explainable AI techniques and the involvement of clinicians in the development and validation process.",
-            keywords: ["Diffusion Models", "Health Informatics", "Explainable AI", "Medical Imaging", "Deep Learning"],
-            methodology: "We conducted a comprehensive literature review of diffusion models applied to health informatics from 2020-2024. Papers were selected from major databases including PubMed, IEEE Xplore, and ACM Digital Library.",
-            results: "Our analysis revealed that diffusion models significantly outperform traditional generative models in medical image synthesis tasks, achieving higher quality outputs with better preservation of anatomical structures.",
-            conclusion: "Diffusion models represent a promising direction for health informatics applications, particularly when combined with explainable AI techniques and clinician feedback loops."
+            status: "Published in Diagnostics (MDPI)",
+            date: "2026",
+            journal: "Diagnostics (MDPI)",
+            link: "https://www.mdpi.com/2075-4418/16/2/211",
+            authors: ["Dr. Mohammad Azad", "Tanvir Rahman Anik"],
+            abstract: "Diffusion models, as the advanced evolvement of generative models, have been adopted across various domains and demonstrate remarkable performance in a wide range of applications. In health informatics, diffusion models have shown great potential in medical image synthesis, disease diagnosis, and treatment planning. This systematic review examines 68 studies on diffusion models in medical imaging and health informatics, analyzing model architectures, clinical applications, and explainability, with a particular focus on explainable AI techniques and the involvement of clinicians in the development and validation process.",
+            keywords: ["Diffusion Models", "Medical Image Diagnosis", "Health Informatics", "Explainable AI", "Generative Models", "Deep Learning"],
+            methodology: "We conducted a systematic review of 68 studies on diffusion models applied to medical imaging and health informatics. Papers were selected from major databases and analyzed across model architectures, clinical applications, taxonomies, clinical integration, and explainability frameworks.",
+            results: "Our analysis identified significant gaps in explainable AI adoption (present in only 22% of studies) and clinician collaboration (57%), while diffusion models consistently outperformed traditional generative models in medical image synthesis and diagnosis tasks.",
+            conclusion: "Diffusion models represent a promising direction for medical image-based diagnosis. We propose 10 evidence-based future research directions, emphasizing explainability, clinical integration, and clinician feedback loops."
         },
         'koa-diagnosis': {
             title: "Automated Knee Osteoarthritis Diagnosis: A Stacked Ensemble Deep Learning Approach with Explainable AI Techniques",
@@ -35,15 +37,15 @@ const ResearchDetail = () => {
             authors: ["Tanvir Rahman Anik", "Dr. Mohammad Azad", "et al."],
             abstract: "Knee osteoarthritis (KOA) is a prevalent degenerative joint disease that affects people all over the world. Because diagnosis and treatment are often delayed, KOA frequently causes severe disability. This research proposes an automated KOA diagnosis system using a stacked ensemble deep learning approach combined with explainable AI techniques to provide transparent and interpretable predictions.",
             keywords: ["Knee Osteoarthritis", "Deep Learning", "Ensemble Learning", "Explainable AI", "Medical Diagnosis"],
-            methodology: "We developed a stacked ensemble model combining multiple CNN architectures (ResNet, DenseNet, EfficientNet) trained on the OAI dataset. Explainability was achieved through Grad-CAM and SHAP analysis.",
-            results: "Our proposed model achieved 94.2% accuracy in KOA severity classification, outperforming individual models. Explainable AI visualizations highlighted key anatomical regions contributing to predictions.",
+            methodology: "We developed a stacked ensemble model combining transfer-learning architectures (Xception, EfficientNetB5, and InceptionV3), with explainability achieved through Grad-CAM, Faster Score-CAM, and LIME.",
+            results: "Our proposed model achieved 96.93% accuracy in multi-class KOA classification and 86.29% accuracy in binary classification, outperforming individual models. Explainable AI visualizations highlighted key anatomical regions contributing to predictions.",
             conclusion: "The stacked ensemble approach with explainable AI provides both high accuracy and interpretability, making it suitable for clinical deployment."
         },
         'koa-review': {
             title: "Deep Learning in Knee Osteoarthritis: A Comprehensive Review of Imaging Modalities, Model Architectures, Grading Systems, and Explainable AI",
             type: "Journal Paper",
-            status: "Manuscript in Preparation",
-            date: "2024",
+            status: "Submitted for Review",
+            date: "2025",
             authors: ["Tanvir Rahman Anik", "Dr. Mohammad Azad", "et al."],
             abstract: "Knee osteoarthritis (KOA) is one of the most prevalent musculoskeletal disorders worldwide, affecting millions of individuals and significantly impacting quality of life. This comprehensive review systematically analyzes the application of deep learning techniques in knee osteoarthritis imaging, examining various imaging modalities, model architectures, grading systems, and the integration of explainable AI frameworks. We provide an in-depth analysis of pre-processing techniques, feature extraction methods, and the latest advancements in automated KOA diagnosis and severity assessment.",
             keywords: ["Knee Osteoarthritis", "Deep Learning", "Medical Imaging", "Explainable AI", "Computer-Aided Diagnosis", "Review"],
@@ -174,7 +176,7 @@ const ResearchDetail = () => {
                                                     : 'text-cyan-600 dark:text-cyan-400 hover:text-cyan-700 dark:hover:text-cyan-300'
                                                     }`}
                                             >
-                                                View Publication on IEEE Xplore
+                                                {paper.journal ? `View Publication in ${paper.journal}` : 'View Publication on IEEE Xplore'}
                                             </a>
 
                                             {/* Journal Information */}

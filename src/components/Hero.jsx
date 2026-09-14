@@ -1,10 +1,44 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Github, Linkedin, GraduationCap } from 'lucide-react';
+import { Github, Linkedin, GraduationCap, FileText } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
+
+const PHRASES = [
+    'Software Engineer @ Shottify',
+    'AI Research Collaborator',
+    'LLM & RAG Engineer',
+    'Medical AI Researcher',
+];
 
 const Hero = () => {
     const { theme } = useTheme();
+
+    // Typewriter effect: type a phrase, pause, delete, move to the next.
+    const [text, setText] = useState('');
+    const [phraseIdx, setPhraseIdx] = useState(0);
+    const [deleting, setDeleting] = useState(false);
+
+    useEffect(() => {
+        const current = PHRASES[phraseIdx];
+        let timeout;
+
+        if (!deleting) {
+            if (text.length < current.length) {
+                timeout = setTimeout(() => setText(current.slice(0, text.length + 1)), 80);
+            } else {
+                timeout = setTimeout(() => setDeleting(true), 1800);
+            }
+        } else {
+            if (text.length > 0) {
+                timeout = setTimeout(() => setText(current.slice(0, text.length - 1)), 40);
+            } else {
+                setDeleting(false);
+                setPhraseIdx((prev) => (prev + 1) % PHRASES.length);
+            }
+        }
+
+        return () => clearTimeout(timeout);
+    }, [text, deleting, phraseIdx]);
 
     return (
         <section className="min-h-screen flex items-center relative overflow-hidden bg-white dark:bg-black transition-colors duration-300">
@@ -26,15 +60,13 @@ const Hero = () => {
                             Tanvir Rahman Anik
                         </h1>
 
-                        <div className="text-xl md:text-2xl lg:text-3xl text-gray-700 dark:text-gray-300 font-mono">
-                            <span className="border-r-2 border-purple-600 dark:border-cyan-400 pr-1 animate-pulse">
-                                ML Engineer @ Interactive Cares & Research Assistant
-                            </span>
+                        <div className="text-xl md:text-2xl lg:text-3xl text-gray-700 dark:text-gray-300 font-mono min-h-[3.5rem] md:min-h-[2.5rem]">
+                            <span>{text}</span>
+                            <span className="border-r-2 border-purple-600 dark:border-cyan-400 animate-pulse ml-0.5">&#8203;</span>
                         </div>
 
-                        <p className="text-gray-600 dark:text-gray-400 text-base md:text-lg leading-relaxed max-w-xl">
-                            Specializing in Medical Image Analysis, Explainable AI, Multimodal Learning, Generative AI, and Natural Language Processing.
-                            Building the future of intelligent healthcare and conversational AI systems.
+                        <p className="text-gray-700 dark:text-gray-300 text-lg md:text-xl leading-relaxed max-w-xl">
+                            Building AI systems people can actually trust, from research to production.
                         </p>
 
                         <div className="flex gap-6 pt-4">
@@ -65,7 +97,16 @@ const Hero = () => {
                             >
                                 <GraduationCap size={24} />
                             </a>
-                            {/* <a
+                            <a
+                                href="/assets/pdfs/CV_Tanvir_Rahman_Anik.pdf"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center gap-2 px-5 py-3 border border-gray-300 dark:border-white/20 rounded-full hover:bg-gray-100 dark:hover:bg-white/10 hover:border-purple-600 dark:hover:border-cyan-400 hover:text-purple-600 dark:hover:text-cyan-400 transition-all text-gray-700 dark:text-white font-mono text-sm"
+                                aria-label="Download CV"
+                            >
+                                <FileText size={20} /> Download CV
+                            </a>
+                            {/* <
                                 href="https://www.researchgate.net/profile/Tanvir-Anik-7/research"
                                 target="_blank"
                                 rel="noopener noreferrer"

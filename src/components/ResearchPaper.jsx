@@ -3,17 +3,17 @@ import { motion } from 'framer-motion';
 import { FileText, ArrowRight, ExternalLink } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
-const ResearchPaper = ({ title, type, abstract, link, delay, journal, journalLink, conference, conferenceLink }) => {
+const ResearchPaper = ({ title, type, link, delay, journal, journalLink, conference, conferenceLink }) => {
     const badgeLabel = journal || conference;
     const badgeLink = journalLink || conferenceLink;
 
-    return (
+    const card = (
         <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay }}
-            className="bg-white dark:bg-white/5 p-8 rounded-xl border border-gray-200 dark:border-white/10 hover:border-purple-600 dark:hover:border-cyan-400/50 transition-all group"
+            className="bg-white dark:bg-white/5 p-8 rounded-xl border border-gray-200 dark:border-white/10 hover:border-purple-600 dark:hover:border-cyan-400/50 transition-all group h-full flex flex-col cursor-pointer"
         >
             <div className="flex items-start justify-between mb-4">
                 <div className="flex flex-wrap items-center gap-2">
@@ -44,25 +44,23 @@ const ResearchPaper = ({ title, type, abstract, link, delay, journal, journalLin
                 <FileText className="text-gray-400 dark:text-gray-500 group-hover:text-gray-900 dark:group-hover:text-white transition-colors" />
             </div>
 
-            <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4 group-hover:text-purple-600 dark:group-hover:text-cyan-400 transition-colors">
+            <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-6 group-hover:text-purple-600 dark:group-hover:text-cyan-400 transition-colors">
                 {title}
             </h3>
 
-            <p className="text-gray-600 dark:text-gray-400 mb-6 leading-relaxed text-sm">
-                <strong className="text-gray-700 dark:text-gray-300">Abstract: </strong>
-                {abstract}
-            </p>
-
             {link && (
-                <Link
-                    to={link}
-                    className="inline-flex items-center text-sm font-mono text-purple-600 dark:text-cyan-400 hover:text-purple-700 dark:hover:text-white transition-colors"
-                >
-                    Read More <ArrowRight size={14} className="ml-2" />
-                </Link>
+                <span className="inline-flex items-center text-sm font-mono text-purple-600 dark:text-cyan-400 group-hover:text-purple-700 dark:group-hover:text-white transition-colors mt-auto">
+                    Read More <ArrowRight size={14} className="ml-2 group-hover:translate-x-1 transition-transform" />
+                </span>
             )}
         </motion.div>
     );
+
+    return link ? (
+        <Link to={link} className="block h-full">
+            {card}
+        </Link>
+    ) : card;
 };
 
 export default ResearchPaper;

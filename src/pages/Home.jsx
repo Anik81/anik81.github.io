@@ -1,7 +1,7 @@
 import React from 'react';
 import Hero from '../components/Hero';
 import { motion } from 'framer-motion';
-import { ArrowRight, Brain, Code, Database } from 'lucide-react';
+import { ArrowRight, Brain, Code2, Sparkles, FlaskConical } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import ProjectCard from '../components/ProjectCard';
 import ResearchPaper from '../components/ResearchPaper';
@@ -10,31 +10,64 @@ const Home = () => {
     // Featured projects (first 3)
     const featuredProjects = [
         {
-            title: "AI-Interviewer Platform",
-            tags: ["Next.js", "FastAPI", "OpenAI+Gemini", "Redis"],
-            description: "Enterprise-grade conversational AI interview platform with Next.js 15 frontend, FastAPI microservices, and multimodal processing, reducing screening time by 70%.",
-            image: "/assets/img/projects/LLM.png",
+            title: "NewsDocument-Classifier",
+            tags: ["PyTorch", "Bi-LSTM", "GloVe", "Multi-Head Attention"],
+            description: "Hierarchical Attention Network for multi-class text classification with dual-stage attention, residual connections, and a gating mechanism.",
+            image: "/assets/img/projects/gen/news-classifier.svg",
             links: {
-                code: "https://github.com/Anik81"
+                code: "https://github.com/Anik81/News-Document-Classifier"
             }
         },
         {
-            title: "CV-Sorter AI Platform",
-            tags: ["FastAPI", "OpenAI APIs", "MySQL", "AWS S3"],
-            description: "AI-powered CV screening platform with async batch processing, intelligent candidate ranking, and real-time job tracking analytics, reducing manual review time by 80%.",
-            image: "/assets/img/projects/webchat1.png",
+            title: "2D-to-3D Model Generator",
+            tags: ["Python", "PyTorch", "Transformers", "Computer Vision"],
+            description: "Converts 2D images into 3D models using Stability AI's TripoSR with automated mesh generation and .glb model export.",
+            image: "/assets/img/projects/gen/2d-to-3d.svg",
             links: {
-                code: "https://github.com/Anik81"
+                code: "https://github.com/anik81/2D-Image-to-3D-model-Generator"
             }
         },
         {
-            title: "LLM Fine-tuning for Text-to-SQL",
-            tags: ["Meta-LLaMA 3.1", "QLoRA", "HuggingFace"],
-            description: "Fine-tuned 8B parameter model using QLoRA with 4-bit quantization, achieving 85.48% exact match accuracy on SQL generation for ERP databases.",
-            image: "/assets/img/projects/LLM.png",
+            title: "Knee Osteoarthritis Severity Prediction",
+            tags: ["TensorFlow", "Keras", "OpenCV", "Explainable AI"],
+            description: "Stacked ensemble model for KOA classification from X-rays with explainability via Grad-CAM, Score-CAM, and LIME, reaching 96.93% multi-class accuracy.",
+            image: "/assets/img/publication/KOA_display.jpg",
             links: {
-                demo: "https://huggingface.co/tranik/FineTuned-LLma3.1-text2sql"
+                demo: "https://ieeexplore.ieee.org/document/11239041",
+                code: "https://github.com/Anik81/KOA-Diagnosis-and-Severity-Prediction"
             }
+        }
+    ];
+
+    // Capability cards
+    const capabilities = [
+        {
+            icon: Code2,
+            color: "text-cyan-500",
+            title: "Software Engineering",
+            desc: "Production backends and full-stack systems built to scale and stay secure.",
+            tags: ["FastAPI", "Django", "Next.js", "Microservices", "PostgreSQL", "Redis", "Docker", "AWS", "CI/CD"]
+        },
+        {
+            icon: Sparkles,
+            color: "text-purple-500",
+            title: "LLM & Generative AI",
+            desc: "Shipping LLM-powered products, from retrieval to agents to fine-tuned models.",
+            tags: ["RAG", "LangChain", "LangGraph Agents", "Fine-tuning (QLoRA)", "Text-to-SQL", "Vector DBs", "Evaluation & Tracing"]
+        },
+        {
+            icon: Brain,
+            color: "text-green-500",
+            title: "Machine Learning",
+            desc: "Deep learning for vision and language, with a focus on robustness.",
+            tags: ["Deep Learning", "CNNs", "Transformers", "Transfer Learning", "Ensemble Learning", "PyTorch", "TensorFlow"]
+        },
+        {
+            icon: FlaskConical,
+            color: "text-pink-500",
+            title: "Research",
+            desc: "Peer-reviewed work on trustworthy, explainable AI for healthcare.",
+            tags: ["Medical Image Analysis", "Explainable AI (XAI)", "Diffusion Models", "Trustworthy AI", "NLP"]
         }
     ];
 
@@ -42,8 +75,8 @@ const Home = () => {
     const featuredResearch = [
         {
             type: "Journal Paper",
-            title: "A Systematic Review of Diffusion Models in Medical Imaging: Architectures, Taxonomies, Challenges, and Future Directions",
-            abstract: "Systematic review of 68 studies on diffusion models in medical imaging and health informatics, analyzing model architectures, clinical applications, and explainability frameworks. (Under Peer Review - International Journal of Computer Vision)",
+            title: "A Systematic Review of Diffusion Models for Medical Image-Based Diagnosis: Methods, Taxonomies, Clinical Integration, Explainability, and Future Directions",
+            abstract: "Systematic review of 68 studies on diffusion models in medical imaging and health informatics, analyzing model architectures, clinical applications, and explainability frameworks, and proposing 10 evidence-based future research directions. (Published in Diagnostics, MDPI)",
             link: "/research/diffusion-models"
         },
         {
@@ -75,13 +108,14 @@ const Home = () => {
                         >
                             <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">About Me</h2>
                             <p className="text-gray-600 dark:text-gray-400 mb-4 leading-relaxed">
-                                I'm a Machine Learning Engineer at Interactive Cares and a Research Assistant specializing in Medical Image Analysis,
-                                Explainable AI, and Multimodal Learning. My work focuses on developing intelligent healthcare systems and advancing
-                                the field of AI-driven medical diagnostics.
+                                I'm a Software Engineer at Shottify and an AI Research Collaborator with Jouf University. I build production-grade
+                                AI and full-stack systems, including data pipelines, LLM/RAG applications, and secure backends, while researching
+                                intelligent medical diagnostics.
                             </p>
                             <p className="text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">
-                                With expertise in Deep Learning, Natural Language Processing, and Generative AI, I bridge the gap between
-                                cutting-edge research and practical applications in healthcare and enterprise solutions.
+                                My work bridges applied engineering and research: designing Retrieval-Augmented Generation pipelines, fine-tuning
+                                large language models, and engineering conversational AI, alongside deep learning research in Medical Image Analysis,
+                                Explainable AI, and Multimodal Learning.
                             </p>
                             <Link to="/about" className="inline-flex items-center text-purple-600 dark:text-cyan-400 hover:text-purple-700 dark:hover:text-cyan-300 font-mono group">
                                 Read full bio <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -92,28 +126,25 @@ const Home = () => {
                             initial={{ opacity: 0, x: 20 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
-                            className="grid grid-cols-2 gap-4"
+                            className="grid grid-cols-1 sm:grid-cols-2 gap-4"
                         >
-                            <div className="p-6 bg-white dark:bg-white/5 rounded-xl border border-gray-200 dark:border-white/10 hover:border-purple-600 dark:hover:border-cyan-400/50 transition-colors">
-                                <Brain className="w-8 h-8 text-purple-500 mb-4" />
-                                <h3 className="text-gray-900 dark:text-white font-bold mb-2">Machine Learning</h3>
-                                <p className="text-sm text-gray-600 dark:text-gray-500">Deep Learning, Neural Networks</p>
-                            </div>
-                            <div className="p-6 bg-white dark:bg-white/5 rounded-xl border border-gray-200 dark:border-white/10 hover:border-purple-600 dark:hover:border-cyan-400/50 transition-colors">
-                                <Code className="w-8 h-8 text-cyan-500 mb-4" />
-                                <h3 className="text-gray-900 dark:text-white font-bold mb-2">Development</h3>
-                                <p className="text-sm text-gray-600 dark:text-gray-500">Python, React, Full Stack</p>
-                            </div>
-                            <div className="p-6 bg-white dark:bg-white/5 rounded-xl border border-gray-200 dark:border-white/10 hover:border-purple-600 dark:hover:border-cyan-400/50 transition-colors">
-                                <Database className="w-8 h-8 text-green-500 mb-4" />
-                                <h3 className="text-gray-900 dark:text-white font-bold mb-2">Data Science</h3>
-                                <p className="text-sm text-gray-600 dark:text-gray-500">Analytics, Visualization</p>
-                            </div>
-                            <div className="p-6 bg-white dark:bg-white/5 rounded-xl border border-gray-200 dark:border-white/10 hover:border-purple-600 dark:hover:border-cyan-400/50 transition-colors">
-                                <Brain className="w-8 h-8 text-pink-500 mb-4" />
-                                <h3 className="text-gray-900 dark:text-white font-bold mb-2">Research</h3>
-                                <p className="text-sm text-gray-600 dark:text-gray-500">Medical AI, XAI</p>
-                            </div>
+                            {capabilities.map((cap, i) => {
+                                const Icon = cap.icon;
+                                return (
+                                    <div key={i} className="p-6 bg-white dark:bg-white/5 rounded-xl border border-gray-200 dark:border-white/10 hover:border-purple-600 dark:hover:border-cyan-400/50 transition-colors flex flex-col">
+                                        <Icon className={`w-8 h-8 ${cap.color} mb-4`} />
+                                        <h3 className="text-gray-900 dark:text-white font-bold mb-2">{cap.title}</h3>
+                                        <p className="text-sm text-gray-600 dark:text-gray-500 mb-4">{cap.desc}</p>
+                                        <div className="flex flex-wrap gap-1.5 mt-auto">
+                                            {cap.tags.map((tag, j) => (
+                                                <span key={j} className="text-[10px] font-mono px-2 py-0.5 rounded bg-gray-100 dark:bg-white/5 text-gray-600 dark:text-gray-400 border border-gray-200 dark:border-white/5">
+                                                    {tag}
+                                                </span>
+                                            ))}
+                                        </div>
+                                    </div>
+                                );
+                            })}
                         </motion.div>
                     </div>
                 </div>

@@ -3,13 +3,23 @@ import { motion } from 'framer-motion';
 import { Github, ExternalLink, Code } from 'lucide-react';
 
 const ProjectCard = ({ title, tags, description, image, links, delay }) => {
+    // Whole card navigates to the primary link (prefer live demo, else source code).
+    const primaryLink = links.demo || links.code;
+
+    const openPrimary = () => {
+        if (primaryLink) {
+            window.open(primaryLink, '_blank', 'noopener,noreferrer');
+        }
+    };
+
     return (
         <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay }}
-            className="bg-white dark:bg-zinc-900 rounded-xl overflow-hidden border border-gray-200 dark:border-white/10 hover:border-purple-600 dark:hover:border-cyan-400/50 transition-all group h-full flex flex-col"
+            onClick={openPrimary}
+            className={`bg-white dark:bg-zinc-900 rounded-xl overflow-hidden border border-gray-200 dark:border-white/10 hover:border-purple-600 dark:hover:border-cyan-400/50 transition-all group h-full flex flex-col ${primaryLink ? 'cursor-pointer' : ''}`}
         >
             <div className="relative overflow-hidden h-48">
                 <img
@@ -23,6 +33,7 @@ const ProjectCard = ({ title, tags, description, image, links, delay }) => {
                             href={links.demo}
                             target="_blank"
                             rel="noopener noreferrer"
+                            onClick={(e) => e.stopPropagation()}
                             className="p-2 bg-cyan-500 rounded-full text-black hover:bg-cyan-400 transition-colors"
                             title="View Live"
                         >
@@ -34,6 +45,7 @@ const ProjectCard = ({ title, tags, description, image, links, delay }) => {
                             href={links.code}
                             target="_blank"
                             rel="noopener noreferrer"
+                            onClick={(e) => e.stopPropagation()}
                             className="p-2 bg-white rounded-full text-black hover:bg-gray-200 transition-colors"
                             title="View Code"
                         >
@@ -62,12 +74,12 @@ const ProjectCard = ({ title, tags, description, image, links, delay }) => {
 
                 <div className="flex gap-4 mt-auto pt-4 border-t border-gray-200 dark:border-white/5">
                     {links.demo && (
-                        <a href={links.demo} className="text-sm text-purple-600 dark:text-cyan-400 hover:text-purple-700 dark:hover:text-white flex items-center gap-1">
+                        <a href={links.demo} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()} className="text-sm text-purple-600 dark:text-cyan-400 hover:text-purple-700 dark:hover:text-white flex items-center gap-1">
                             <ExternalLink size={14} /> Live Demo
                         </a>
                     )}
                     {links.code && (
-                        <a href={links.code} className="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white flex items-center gap-1">
+                        <a href={links.code} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()} className="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white flex items-center gap-1">
                             <Code size={14} /> Source Code
                         </a>
                     )}
